@@ -36,8 +36,25 @@ function makeCall(serviceName, serviceNumber) {
       return;
     }
     coins -= 20;
+    alert(`Calling ${serviceName} at ${serviceNumber}`);
     document.getElementById("available-coin").innerText = coins;
+    // Add call history dynamically
+    const historyContainer = document.getElementById("history-container");
+
+    const historyItem = document.createElement("div");
+    historyItem.className = "bg-gray-100 rounded-xl p-3 flex justify-between items-center my-2";
+
+    historyItem.innerHTML = `
+        <div>
+            <h1 class="font-bold">${serviceName}</h1>
+            <p>${serviceNumber}</p>
+        </div>
+        <p>${new Date().toLocaleTimeString()}</p>
+    `;
+
+    historyContainer.appendChild(historyItem);
 }
+
 
 //copy-button
 function copyNumber(serviceNumber) {
@@ -50,4 +67,10 @@ function copyNumber(serviceNumber) {
 function makeFavorite() {
       availableHeart++;
       document.getElementById("available-heart").innerText =  availableHeart;
-    }
+}
+
+// Clear History function
+function clearHistory() {
+    document.getElementById("history-container").innerHTML = "";
+}
+
