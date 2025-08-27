@@ -1,6 +1,7 @@
 
 let coins = 100;
 let availableCopy=0;
+let availableHeart=0;
 //function to get input value
 
 /*function getInputValueNumber(id){
@@ -35,7 +36,6 @@ function makeCall(serviceName, serviceNumber) {
       return;
     }
     coins -= 20;
-    //alert(`Calling ${serviceName} at ${serviceNumber}`);
     document.getElementById("available-coin").innerText = coins;
 }
 
@@ -45,3 +45,9 @@ function copyNumber(serviceNumber) {
     document.getElementById("available-copy").innerText = availableCopy;
     alert("Hotline number " + serviceNumber + " copied!");
 }
+
+//heart-button
+function makeFavorite() {
+      availableHeart++;
+      document.getElementById("available-heart").innerText =  availableHeart;
+    }
